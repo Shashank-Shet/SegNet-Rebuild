@@ -108,7 +108,7 @@ n_labels = 10
 
 x = Lambda(Unpool2D, arguments={"factor": pool_size})([pool_5, mask_5])
 
-x = Conv2D(512, (1, 1), padding="same")(x)
+x = Conv2D(512, (kernel, kernel), padding="same")(x)
 x = BatchNormalization()(x)
 x = Activation("relu")(x)
 x = Conv2D(512, (kernel, kernel), padding="same")(x)
@@ -120,7 +120,7 @@ x = Activation("relu")(x)
 
 x = Lambda(Unpool2D, arguments={"factor": pool_size})([x, mask_4])
 
-x = Conv2D(512, (1, 1), padding="same")(x)
+x = Conv2D(512, (kernel, kernel), padding="same")(x)
 x = BatchNormalization()(x)
 x = Activation("relu")(x)
 x = Conv2D(512, (kernel, kernel), padding="same")(x)
@@ -132,7 +132,7 @@ x = Activation("relu")(x)
 
 x = Lambda(Unpool2D, arguments={"factor": pool_size})([x, mask_3])
 
-x = Conv2D(256, (1, 1), padding="same")(x)
+x = Conv2D(256, (kernel, kernel), padding="same")(x)
 x = BatchNormalization()(x)
 x = Activation("relu")(x)
 x = Conv2D(256, (kernel, kernel), padding="same")(x)
